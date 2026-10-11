@@ -1,0 +1,72 @@
+LEARNXT FRESH START — WINDOWS — READ THIS FIRST
+===============================================
+
+This one ZIP includes the NEW Multi-AI website AND the Groq error-message fix.
+Do not merge these files into your previous Learnxt folders.
+
+STEP 1 — CLOSE THE OLD SERVER
+  • Open the old Visual Studio Code window.
+  • Click Terminal → New Terminal if needed and locate the one running Learnxt.
+  • In the running terminal press Ctrl+C. If asked, choose Y.
+  • Close the old VS Code window. Do NOT delete the old project.
+
+STEP 2 — EXTRACT THE ZIP
+  • In Downloads, right-click Learnxt-FRESH-START-COMPLETE.zip → Extract All.
+  • Choose a convenient location and click Extract.
+  • Find the inner folder named Learnxt-FRESH-START.
+  • IMPORTANT: That exact folder contains BOTH package.json and server.js.
+
+STEP 3 — OPEN THE CORRECT FOLDER IN VS CODE
+  • Open VS Code → File → Open Folder → select Learnxt-FRESH-START.
+  • If prompted about trust, only trust the folder if you recognise this download.
+  • Click Terminal → New Terminal.
+  • Type:  dir
+  • You should see package.json and server.js listed.
+
+STEP 4 — CHECK NODE.JS
+  • In the same terminal type:  node -v
+  • Use Node.js 20 or newer; download LTS from https://nodejs.org/ if needed.
+  • Close and reopen VS Code after installing Node.js.
+
+STEP 5 — CONFIGURE ONE PROVIDER (GROQ EXAMPLE)
+  • Groq keys: https://console.groq.com/keys
+  • Follow Groq account eligibility and billing terms.
+  • In the VS Code terminal, type:  Copy-Item .env.example .env
+  • Open .env in VS Code. Find GROQ_API_KEY=replace_with_your_groq_key
+  • Replace ONLY the placeholder with your private Groq key; leave GROQ_MODEL unchanged.
+  • Other providers are optional; leave their placeholders until you get those keys.
+  • Save (Ctrl+S). .env must be NEXT TO server.js, never in public.
+  • NEVER share your key or screenshots showing it.
+
+STEP 6 — START THE WEBSITE
+  • In the same VS Code terminal type:  npm start
+  • You should see Learnxt is live and Configured AI providers: Groq.
+  • Leave this terminal open while using the site.
+  • Open Chrome or Edge and type:  http://localhost:3000
+
+STEP 7 — TEST YOUR SETUP
+  • Open http://localhost:3000/api/status to check whether Groq is configured.
+  • Back at http://localhost:3000 click Create flashcards.
+  • Choose Groq, Topic, Photosynthesis, 5 flashcards, Balanced.
+  • Set WEB RESEARCH OFF (gray switch, circle on left) for the first test.
+  • Click Generate my flashcards ONCE and wait.
+
+STEP 8 — IF AN ERROR APPEARS
+  • Read the full red message. The latest backend shows more detail for Groq HTTP 400.
+  • 401 / 403: check Groq account and key; 429: wait for limit reset.
+  • 400: check the full reason, model availability, or output option compatibility.
+  • If port 3000 is already in use, stop the old server; or change PORT=3001
+    in .env and then use http://localhost:3001.
+  • If the old website appears, make sure the terminal says Learnxt-FRESH-START,
+    then refresh Chrome with Ctrl+Shift+R.
+  • Send only the error text or screenshot; NEVER send your .env or API key.
+
+IMPORTANT NOTES
+  • No npm install necessary (package has no external npm dependencies).
+  • The key is read on the server; the browser never needs it.
+  • Free tier limits can still prevent a request; local tests can't guarantee live API access.
+  • Existing browser decks are local to a browser origin. Export them from your
+    old Learnxt first if you wish to preserve them.
+  • The server is for local development. Do NOT expose it directly to the internet.
+
+Detailed guide: see README.md in this folder.
